@@ -71,14 +71,10 @@ class ProductController extends Controller
             'image' => $imageName,
         ]);
 
-       return redirect()->route('admin.product')->with('success', 'Product created successfully.');
-
+        return redirect()->route('admin.products')->with('success', 'Product created successfully.');
     }
 
-
-    public function destroy($id)
-    {
-        Product::destroy($id);
-        return view('admin.product');
+    function destroy(Request $request){
+        $id = $request->input('product_id');
     }
 }
